@@ -1,0 +1,19 @@
+{% extends "orders/base.html" %}
+
+{% block title %}
+	Administrators page 
+{% endblock %}
+
+{% block body %}
+		
+		<div class="jumbotron" >
+			<ul>
+				{% for order in orders %}
+				<li><h3>{{order.item}}  ,size : {{order.size}} ,Extras or toppings : {{order.extras}}  By {{order.customer}}</h3></li>
+				{% endfor %}
+			</ul>
+
+		</div>
+
+
+{% endblock %}

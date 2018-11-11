@@ -1,0 +1,72 @@
+{% extends "orders/base.html" %}
+
+{% block title %}
+	Pizza Dilevry
+{% endblock %}
+
+{% block body %}
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  	<a class="navbar-brand" href="{% url 'index' %}" ><h1>PIZZAAAA!!!!!</h1></a>
+  			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    			<span class="navbar-toggler-icon"></span>
+  			</button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'show_cart' %}">Cart <span class="sr-only">(current)</span></a>
+      </li>
+     
+      <li class="nav-item">
+        
+        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+      </li>
+    </ul>
+
+	</div>
+</nav>
+<hr>
+<hr>
+  <div class="jumbotron">
+    <div >
+      <h3>Regular Pizza</h3>
+      <table>
+        {% for pizza in r_pizzas %}
+
+        <tr><a href="{% url 'add_items' pizza.pizza_type pizza.small pizza.large %}">{{pizza.pizza_type}}  , {{pizza.small}}   , {{pizza.large}}</a> </tr><br><hr>
+
+        {% endfor %}
+      </table>
+
+    </div>
+
+    <div >
+      <h3>Sicilian Pizza</h3>
+      <table>
+        {% for pizza in s_pizzas %}
+
+        <tr><a href="{% url 'add_items' pizza.pizza_type pizza.small pizza.large %}">{{pizza.pizza_type}}  , {{pizza.small}}   , {{pizza.large}} </a> </tr><br><hr>
+
+        {% endfor %}
+      </table>
+
+    </div>
+
+    <div >
+      <h3>Toppings</h3>
+      <table>
+        {% for t in toppings %}
+
+        <tr>{{t.name}} </tr><br><hr>
+
+        {% endfor %}
+      </table>
+
+    </div>
+
+    
+  </div>
+
+
+{% endblock %}
